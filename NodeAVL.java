@@ -40,7 +40,10 @@ public class NodeAvl<E> {
 	public void setRight(NodeAvl<E> right) {
 		this.right = right;
 	}
-
+    public String toString() {
+		return this.data.toString() + "(" + this.bf + ")";
+	}
+}
 
 
 
