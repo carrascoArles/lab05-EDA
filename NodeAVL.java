@@ -26,5 +26,21 @@ public class NodeAvl<E> {
 	public void setData(E data) {
 		this.data = data;
 	}
+    public NodeAvl<E> getLeft() {
+		return this.left;
+	}
+
+	public void setLeft(NodeAvl<E> left) {
+		this.left = left;
+	}
+    public NodeAvl<E> getRight() {
+		return this.right;
+	}
+
+	public void setRight(NodeAvl<E> right) {
+		this.right = right;
+	}
+
+
 
 
