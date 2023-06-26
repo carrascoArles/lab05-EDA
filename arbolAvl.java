@@ -46,7 +46,19 @@ public class arbolAVL<E extends Comparable<E>> {
 			}
 			else { // resC > 0
 				res.setLeft(insert(x, current.getLeft()));
-				// rotacion der
+				if (this.height) {
+					switch(res.getBf()) {
+					case -1: res.setBf(-2); //-1-1
+							this.height = false;
+							break;
+					case 0: res.setBf(-1); //0-1
+							break;
+					case 1: res.setBf(0); // 1-1
+							//metodo balance der
+							this.height = false;
+							break;
+					}
+				}
 			}
 		}
 		return res;	
