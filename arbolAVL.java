@@ -16,6 +16,13 @@ public class arbolAVL<E extends Comparable<E>> {
 	private boolean isLeaf(NodeAVL<E> current) { // elemento es hoja
 		return current.getLeft() == null && current.getRight() == null;
 	}
+	public NodeAvl<E> parent(E x) throws ExceptionNoFound {
+		 NodeAvl<E> aux = parent(x, this.root);
+		 if (aux == null)
+			throw new ExceptionNoFound("Elemento no se encuentra en el arbol");
+                 System.out.println(aux.getData());
+		 return aux;
+	}
 	public void insert(E x) throws ExceptionNoFound {
 		this.root = insert(x, this.root);	
 		this.height = false;
