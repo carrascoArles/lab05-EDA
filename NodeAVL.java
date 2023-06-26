@@ -1,16 +1,16 @@
-public class NodeAvl<E> { 
+public class NodeAVL<E> { 
 	private E data;
-	private NodeAvl<E> left; 
-	private NodeAvl<E> right;
+	private NodeAVL<E> left; 
+	private NodeAVL<E> right;
 	private int bf;
 	    
-	public NodeAvl(E data, NodeAvl<E> left, NodeAvl<E> right){
+	public NodeAVL(E data, NodeAVL<E> left, NodeAVL<E> right){
 		this.data = data;
 	    this.left = left;
 	    this.right = right;
 	    this.bf = 0;
 	}
-    public NodeAvl(E data){ 
+    public NodeAVL(E data){ 
 		this(data,null, null);
 	}
 	public int getBf() {
@@ -26,18 +26,18 @@ public class NodeAvl<E> {
 	public void setData(E data) {
 		this.data = data;
 	}
-    public NodeAvl<E> getLeft() {
+    public NodeAVL<E> getLeft() {
 		return this.left;
 	}
 
-	public void setLeft(NodeAvl<E> left) {
+	public void setLeft(NodeAVL<E> left) {
 		this.left = left;
 	}
-    public NodeAvl<E> getRight() {
+    public NodeAVL<E> getRight() {
 		return this.right;
 	}
 
-	public void setRight(NodeAvl<E> right) {
+	public void setRight(NodeAVL<E> right) {
 		this.right = right;
 	}
     public String toString() {

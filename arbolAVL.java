@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import myExceptions.ExceptionNoFound;
 
 public class arbolAVL<E extends Comparable<E>> {
@@ -16,20 +18,20 @@ public class arbolAVL<E extends Comparable<E>> {
 	private boolean isLeaf(NodeAVL<E> current) { // elemento es hoja
 		return current.getLeft() == null && current.getRight() == null;
 	}
-	public NodeAvl<E> parent(E x) throws ExceptionNoFound {
-		 NodeAvl<E> aux = parent(x, this.root);
+	public NodeAVL<E> parent(E x) throws ExceptionNoFound {
+		 NodeAVL<E> aux = parent(x, this.root);
 		 if (aux == null)
 			throw new ExceptionNoFound("Elemento no se encuentra en el arbol");
                  System.out.println(aux.getData());
 		 return aux;
 	}
-	private NodeAvl<E> parent(E x, NodeAvl<E> current) throws ExceptionNoFound{
+	private NodeAVL<E> parent(E x, NodeAVL<E> current) throws ExceptionNoFound{
 		   if (current == null) {
         throw new ExceptionNoFound("El árbol está vacío");
     }
     
-    NodeAvl<E> parent = null;
-    NodeAvl<E> node = current;
+    NodeAVL<E> parent = null;
+    NodeAVL<E> node = current;
     
     while (node != null) {
         int comparison = x.compareTo(node.getData());
