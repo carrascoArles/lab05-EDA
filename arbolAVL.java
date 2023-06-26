@@ -23,6 +23,33 @@ public class arbolAVL<E extends Comparable<E>> {
                  System.out.println(aux.getData());
 		 return aux;
 	}
+	private NodeAvl<E> parent(E x, NodeAvl<E> current) throws ExceptionNoFound{
+		   if (current == null) {
+        throw new ExceptionNoFound("El árbol está vacío");
+    }
+    
+    NodeAvl<E> parent = null;
+    NodeAvl<E> node = current;
+    
+    while (node != null) {
+        int comparison = x.compareTo(node.getData());
+        
+        if (comparison == 0) {
+            if (parent == null) {
+                throw new ExceptionNoFound("El nodo insertado es la raíz del árbol");
+            }
+            return parent;
+        } else if (comparison < 0) {
+            parent = node;
+            node = node.getLeft();
+        } else {
+            parent = node;
+            node = node.getRight();
+        }
+    }
+    
+    throw new ExceptionNoFound("El elemento no se encuentra en el árbol");}
+	
 	public void insert(E x) throws ExceptionNoFound {
 		this.root = insert(x, this.root);	
 		this.height = false;
