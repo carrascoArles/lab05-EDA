@@ -37,7 +37,7 @@ public class arbolAVL<E extends Comparable<E>> {
 					case 0: res.setBf(1); //0+1
 							break;
 					case 1: //res.setBf(2); 1+1
-							// metodo balance izq
+							res = balanceToLeft(res);
 							this.height = false;
 							break;
 					}
@@ -106,6 +106,28 @@ public class arbolAVL<E extends Comparable<E>> {
 		son.setRight(node);
 		node = son;
 		return node;
+	}
+	
+	public E search(E x) throws ExceptionNoFound {
+		 NodeAVL<E> aux = search(x, this.root);
+		 if (aux == null) {
+			throw new ExceptionNoFound("Elemento no se encuentra en el arbol");
+		 }
+		 return aux.getData();
+	}
+	private NodeAVL<E> search(E x, NodeAVL<E> current) throws ExceptionNoFound{
+		if (current == null) { // deja la recursividad si ya no hay elementos
+			return null;
+		}
+		else {
+			int resC = current.getData().compareTo(x);
+			if (resC == 0) // deja la recursividad hasta encontrar el elemento
+				return current;
+			if (resC < 0)
+				 return search(x, current.getRight());
+			else
+				return search(x, current.getLeft());
+		}
 	}
 	
 	
