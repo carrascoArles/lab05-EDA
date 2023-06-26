@@ -1,3 +1,4 @@
+package lab_05;
 import myExceptions.ExceptionNoFound;
 
 public class arbolAVL<E extends Comparable<E>> {
@@ -12,6 +13,9 @@ public class arbolAVL<E extends Comparable<E>> {
 	}
 	public E getRoot() {
 		return this.root.getData();
+	}
+	private boolean isLeaf(NodeAVL<E> current) { // elemento es hoja
+		return current.getLeft() == null && current.getRight() == null;
 	}
 	public void insert(E x) throws ExceptionNoFound {
 		this.root = insert(x, this.root);	
@@ -108,27 +112,28 @@ public class arbolAVL<E extends Comparable<E>> {
 		return node;
 	}
 	
-	public E search(E x) throws ExceptionNoFound {
+	public NodeAVL<E> search(E x) throws ExceptionNoFound {
 		 NodeAVL<E> aux = search(x, this.root);
 		 if (aux == null) {
 			throw new ExceptionNoFound("Elemento no se encuentra en el arbol");
 		 }
-		 return aux.getData();
+		 return aux;
 	}
 	private NodeAVL<E> search(E x, NodeAVL<E> current) throws ExceptionNoFound{
 		if (current == null) { // deja la recursividad si ya no hay elementos
-			return null;
+			return null; 
 		}
 		else {
 			int resC = current.getData().compareTo(x);
 			if (resC == 0) // deja la recursividad hasta encontrar el elemento
 				return current;
 			if (resC < 0)
-				 return search(x, current.getRight());
+				return search(x, current.getRight());
 			else
 				return search(x, current.getLeft());
 		}
 	}
+	
 	
 	
 
