@@ -7,6 +7,12 @@ public class arbolAvl<E extends Comparable<E>> {
 	public arbolAvl() {
 		this.root = null;
 	}
+	public boolean isEmpty() {
+		return this.root == null;
+	}
+	public E getRoot() {
+		return this.root.getData();
+	}
 
 
 
