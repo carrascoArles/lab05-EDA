@@ -230,7 +230,17 @@ public class arbolAVL<E extends Comparable<E>> {
        		return getMax(nodo.getRight());
 	}
 	
-	
+	public ArrayList<NodeAVL<E>> son (E dato) throws ExceptionNoFound{
+		NodeAVL <E> nodo = search(dato);
+	        ArrayList<NodeAVL<E>> hijos = new ArrayList<>();
+	        if (nodo.getLeft() != null) {
+	            hijos.add(nodo.getLeft());
+	        }
+	        if (nodo.getRight() != null) {
+	            hijos.add(nodo.getRight());
+	        }
+		return hijos;
+	}
 	
 
 
