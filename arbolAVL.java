@@ -241,6 +241,27 @@ public class arbolAVL<E extends Comparable<E>> {
 	        }
 		return hijos;
 	}
+
+	// para pruebas
+	public void inOrden() {
+		if (isEmpty()) {
+			System.out.println("Arbol esta vacío ....");
+		}
+		else{
+			inOrden(this.root);
+			System.out.println();
+		}
+	}
+	
+	private void inOrden(NodeAVL<E> current) {
+		if (current.getLeft() != null) {
+			inOrden(current.getLeft());
+		}
+		System.out.print(current + ", ");
+		if (current.getRight()!= null) {
+			inOrden(current.getRight());
+		}
+	}
 	
 
 
