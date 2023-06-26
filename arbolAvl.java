@@ -1,4 +1,3 @@
-package lab_05;
 import myExceptions.ExceptionNoFound;
 
 public class arbolAVL<E extends Comparable<E>> {
@@ -132,6 +131,20 @@ public class arbolAVL<E extends Comparable<E>> {
 			else
 				return search(x, current.getLeft());
 		}
+	}
+	public void remove(E x) throws ExceptionNoFound {
+		this.root = remove(x, this.root);	
+	}
+	private NodeAVL<E> remove(E x, NodeAVL<E> current) throws ExceptionNoFound{
+		NodeAVL<E> res = current;
+		if (current == null) {
+			throw new ExceptionNoFound("Elemento no se encuentra en el arbol");
+		}
+		else {
+			
+		}
+		return res;
+
 	}
 	
 	
