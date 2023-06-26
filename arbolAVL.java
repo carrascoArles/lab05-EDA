@@ -177,23 +177,23 @@ public class arbolAVL<E extends Comparable<E>> {
 
 	}
 	public NodeAVL<E> getMin(){
-		return getMinRecursivo(root);
+		return getMin(root);
 	}
-	private NodeAVL<E> getMinRecursivo(NodeAVL<E> nodo){
+	public NodeAVL<E> getMin(NodeAVL<E> nodo){
 	        if (nodo.getLeft()== null) {
 	            return nodo;
 	        }
-        	return getMinRecursivo(nodo.getLeft());
+        	return getMin(nodo.getLeft());
 	}
 	
 	public NodeAVL<E> getMax(){
-		return getMaxRecursivo(root);
+		return getMax(root);
 	}
-	private NodeAVL<E> getMaxRecursivo(NodeAVL<E> nodo){
+	public NodeAVL<E> getMax(NodeAVL<E> nodo){
 	        if (nodo.getRight()== null) {
 	            return nodo;
 	        }
-       		return getMaxRecursivo(nodo.getRight());
+       		return getMax(nodo.getRight());
 	}
 	
 	
