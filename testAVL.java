@@ -28,16 +28,25 @@ public class testAVL {
 		b.insert('K');
 		b.inOrden();
 		System.out.println("root: " + b.getRoot());
+		//b.remove('K');
 		
 		System.out.println();
-		System.out.println(  b.son('Z'));
+		System.out.println("Hijos de Z: " + b.son('Z'));
+		
+		System.out.println();
+		System.out.println("Padre de K: " + b.parent('K'));
+		
+		System.out.println();
+		System.out.println("minimo valor: " + b.getMin());
+		
+		System.out.println();
+		System.out.println("maximo valor: " + b.getMax());
+		
+		System.out.println();
+		System.out.println("buscando a Z: " + b.search('Z'));
 		
 		
-		//b.remove('K');
-		b.inOrden();
-		System.out.println("root: " + b.getRoot());
-		System.out.println(  b.son('C'));
-		b.parent('C');
+		
 		
 
 
