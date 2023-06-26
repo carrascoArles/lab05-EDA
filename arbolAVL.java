@@ -176,6 +176,25 @@ public class arbolAVL<E extends Comparable<E>> {
 		return res;
 
 	}
+	public NodeAVL<E> getMin(){
+		return getMinRecursivo(root);
+	}
+	private NodeAVL<E> getMinRecursivo(NodeAVL<E> nodo){
+	        if (nodo.getLeft()== null) {
+	            return nodo;
+	        }
+        	return getMinRecursivo(nodo.getLeft());
+	}
+	
+	public NodeAVL<E> getMax(){
+		return getMaxRecursivo(root);
+	}
+	private NodeAVL<E> getMaxRecursivo(NodeAVL<E> nodo){
+	        if (nodo.getRight()== null) {
+	            return nodo;
+	        }
+       		return getMaxRecursivo(nodo.getRight());
+	}
 	
 	
 	
