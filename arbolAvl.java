@@ -68,7 +68,7 @@ public class arbolAVL<E extends Comparable<E>> {
 		if (son.getBf() == 1){
 			node.setBf(0);
 			son.setBf(0);
-			// metodo rotacion simple izquierda
+			node = rotateRSL(node);
 		}
 		else if (son.getBf() == -1) {
 			NodeAVL<E> gSon = son.getLeft();
@@ -87,9 +87,24 @@ public class arbolAVL<E extends Comparable<E>> {
 				break;
 			}
 			gSon.setBf(0);
-			// metodo rotacion simple derecha
-			// metodo rotacion simple izquierda
+			node.setRight(rotateRSR(son));
+			node = rotateRSL(node);
 		}
+		return node;
+	}
+	private NodeAVL<E> rotateRSL(NodeAVL<E> node){
+		NodeAVL<E> son = node.getRight();
+		node.setRight(son.getLeft());
+		son.setLeft(node);
+		node = son;
+		return node;
+	}
+	
+	private NodeAVL<E> rotateRSR(NodeAVL<E> node){
+		NodeAVL<E> son = node.getLeft();
+		node.setLeft(son.getRight());
+		son.setRight(node);
+		node = son;
 		return node;
 	}
 	
