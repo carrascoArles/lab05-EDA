@@ -45,6 +45,7 @@ public class testAVL {
 		System.out.println();
 		System.out.println("buscando a Z: " + b.search('Z'));
 		
+		b.displayGraph();
 		
 		
 		
