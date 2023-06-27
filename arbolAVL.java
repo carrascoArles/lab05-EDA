@@ -218,7 +218,30 @@ public class arbolAVL<E extends Comparable<E>> {
 		if (current == null) {
 			throw new ExceptionNoFound("Elemento no se encuentra en el arbol");
 		} else {
+			int resC = current.getData().compareTo(x);
+			if (resC < 0) {
+				res.setRight(remove(x, current.getRight()));
 
+			}
+			else if (resC > 0) {
+				res.setLeft(remove(x, current.getLeft()));
+
+			}
+			else {
+				if (current.getLeft()!= null && current.getRight() != null) { // tiene ambos hijos (2)
+					NodeAVL<E> aux = getMax(current.getLeft());
+	                		E datoAux = aux.getData();
+					current.setLeft(remove(datoAux, current.getLeft()));
+	                		current.setData(datoAux);
+				}
+				else {
+					if (isLeaf(current)) // es una hoja
+						res = null;
+					else{ // solo tiene un hijo
+						res = current.getLeft() != null ? current.getLeft() : current.getRight();
+					} 
+				}
+			}
 		}
 		return res;
 
