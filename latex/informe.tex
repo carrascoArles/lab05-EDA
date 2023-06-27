@@ -1,0 +1,526 @@
+%package list
+\listfiles
+
+\documentclass{article}
+\usepackage[top=3cm, bottom=3cm, outer=3cm, inner=3cm]{geometry}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{url}
+%\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{array}
+%\usepackage{multicol}
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\usepackage{natbib}
+\usepackage{pdfpages}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usepackage{svg}
+%\usepackage{xcolor} <- Esta línea se eliminó
+\usepackage{listings}
+\usepackage{geometry}
+%\newgeometry{bottom=2cm,top=2.5cm,right=2.5cm,left=2.5cm}
+\newgeometry{top=2.5cm,bottom=3cm,right=1.5cm,left=1.5cm}
+\usepackage{xcolor}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{},
+    commentstyle=\color{green!50!black},
+    keywordstyle=\color{blue},
+    keywordstyle={[2]\color{cyan}},
+    keywordstyle={[3]\color{purple}},
+    stringstyle=\color{red},
+    basicstyle=\ttfamily\small,
+    frame=tb,
+    numbers=left,
+    numbersep=5pt,
+    showstringspaces=false
+}
+
+\lstset{style=mystyle}
+% Definición del estilo para el código
+\definecolor{codebackground}{rgb}{0.95, 0.95, 0.92}
+
+\lstset{
+    frame=tb,
+    language=Java,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=3,
+    backgroundcolor=\color{codebackground},
+}
+% Configuración del estilo nítido
+% Configuración del estilo similar a Visual Studio
+\lstdefinestyle{visualstudio}{
+    backgroundcolor=\color{white},
+    basicstyle=\ttfamily\small,
+    commentstyle=\color{green!50!black},
+    keywordstyle=\color{blue},
+    keywordstyle={[2]\color{cyan}},
+    keywordstyle={[3]\color{purple}},
+    stringstyle=\color{red},
+    identifierstyle=\color{black},
+    emphstyle=\color{black}\bfseries,
+    frame=tb,
+    numbers=left,
+    numbersep=5pt,
+    showstringspaces=false
+}
+
+\lstdefinestyle{ascii-tree}{
+    literate={├}{|}1 {─}{--}1 {└}{+}1 
+  }
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+%\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{array}
+
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\itemEmail}{}
+\newcommand{\itemStudent}{Joel Isaias Condori Leon \newline Carrasco Choque Arles Melvin \newline Chara Condori Jean Carlo 
+  \newline Hancco Soncco Vladimir Jaward    }
+\newcommand{\itemCourse}{Estructura de Datos y Algoritmos}
+\newcommand{\itemCourseCode}{1702224}
+\newcommand{\itemSemester}{III}
+\newcommand{\itemUniversity}{Universidad Nacional de San Agustín de Arequipa}
+\newcommand{\itemFaculty}{Facultad de Ingeniería de Producción y Servicios}
+\newcommand{\itemDepartment}{Departamento Académico de Ingeniería de Sistemas e Informática}
+\newcommand{\itemSchool}{Escuela Profesional de Ingeniería de Sistemas}
+\newcommand{\itemAcademic}{2023 - A}
+\newcommand{\itemInput}{19 Junio 2023}
+\newcommand{\itemOutput}{26 Junio 2023}
+\newcommand{\itemPracticeNumber}{05}
+\newcommand{\itemTheme}{Arbol AVL}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[english,spanish]{babel}
+\usepackage[utf8]{inputenc}
+\AtBeginDocument{\selectlanguage{spanish}}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\refname}{Referencias}
+\renewcommand{\tablename}{Tabla} %esto no funciona cuando se usa babel
+\AtBeginDocument{%
+	\renewcommand\tablename{Tabla}
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{30pt}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\fancyhead[L]{\raisebox{-0.2\height}{\includegraphics[width=3cm]{img/logo_episunsa.png}}}
+\fancyhead[C]{\fontsize{7}{7}\selectfont	\itemUniversity \\ \itemFaculty \\ \itemDepartment \\ \itemSchool \\ \textbf{\itemCourse}}
+\fancyhead[R]{\raisebox{-0.2\height}{\includegraphics[width=1.2cm]{img/logo_abet}}}
+\fancyfoot[L]{Grupo 04}
+\fancyfoot[C]{\itemCourse}
+\fancyfoot[R]{Página \thepage}
+
+% para el codigo fuente
+\usepackage{listings}
+\usepackage{color, colortbl}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{codebackground}{rgb}{0.95, 0.95, 0.92}
+\definecolor{tablebackground}{rgb}{0.8, 0, 0}
+
+\lstset{frame=tb,
+	language=bash,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3,
+	backgroundcolor= \color{codebackground},
+}
+
+\begin{document}
+	
+	\vspace*{10px}
+	
+	\begin{center}	
+		\fontsize{17}{17} \textbf{ GUÍA DE LABORATORIO \itemPracticeNumber}
+	\end{center}
+	\centerline{\textbf{\Large Tema: \itemTheme}}
+	%\vspace*{0.5cm}	
+
+	\begin{flushright}
+		\begin{tabular}{|M{2.5cm}|N|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white} \textbf{Nota}  \\
+			\hline 
+			     \\[30pt]
+			\hline 			
+		\end{tabular}
+	\end{flushright}	
+
+	\begin{table}[H]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white} \textbf{Estudiante} & \color{white}\textbf{Escuela}  & \color{white}\textbf{Asignatura}   \\
+			\hline 
+			{\itemStudent \par \itemEmail} & \itemSchool & {\itemCourse \par Semestre: \itemSemester \par Código: \itemCourseCode}     \\
+			\hline 			
+		\end{tabular}
+	\end{table}		
+	
+	\begin{table}[H]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white}\textbf{Laboratorio} & \color{white}\textbf{Tema}  & \color{white}\textbf{Duración}   \\
+			\hline 
+			\itemPracticeNumber & \itemTheme & 02 horas   \\
+			\hline 
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white}\textbf{Semestre académico} & \color{white}\textbf{Fecha de inicio}  & \color{white}\textbf{Fecha de entrega}   \\
+			\hline 
+			\itemAcademic & \itemInput &  \itemOutput  \\
+			\hline 
+		\end{tabular}
+	\end{table}
+	
+	\section{TAREA:}
+            \begin{itemize}
+                \item Elabore un informe implementando Arboles AVL con toda la lista de operaciones  search(), getMin(), getMax(), parent(), son(), insert(), remove().
+                \item INPUT: Una sola palabra en mayusculas.
+                \item OUTPUT: Se debe contruir el  arbol AVL considerando el valor decimal de su codigo ascii.
+                \item Luego, pruebe todas sus operaciones implementadas.
+                \item Estudie la libreria Graph Stream para obtener una salida grafica de su implementacion.
+                \item Utilice todas las recomendaciones dadas por el docente.
+            \end{itemize}
+
+        \section{URL DEL REPOSITORIO EN GITHUB:}
+            \begin{itemize}
+                \item Repositorio GITHUB: \url{https://github.com/carrascoArles/lab05-EDA.git}
+            \end{itemize}
+        \section{DESARROLLO DE LA ACTIVIDAD:}
+            \subsection{Nodo AVL}
+                La clase NodeAVL<E> representa un nodo en un árbol AVL. Cada nodo tiene un valor de tipo E, punteros a los nodos hijo izquierdo y derecho, y un campo bf que indica el factor de equilibrio del nodo.
+                \begin{itemize}
+                    \item La clase es genérica, lo que significa que se puede utilizar para crear nodos que contengan cualquier tipo de objeto. El tipo de objeto se especifica cuando se crea una instancia de la clase.
+                    \item El constructor NodeAVL(E data, NodeAVL<E> left, NodeAVL<E> right) crea un nuevo nodo con un valor dado y un puntero a los nodos hijo izquierdo y derecho. El factor de equilibrio se establece en cero en el momento de la creación del nodo.
+                    \item El método getBf() devuelve el factor de equilibrio del nodo, que es la diferencia entre la altura del subárbol derecho y el subárbol izquierdo del nodo.
+                    \item Los métodos setData(E data), setLeft(NodeAVL<E> left), y setRight(NodeAVL<E> right) permiten establecer el valor y los punteros a los nodos hijo izquierdo y derecho del nodo, respectivamente.
+                    \item El método toString() devuelve una representación en cadena del nodo, que consiste en el valor del nodo y su factor de equilibrio entre paréntesis. Este método es útil para imprimir el árbol AVL en un formato legible.
+                \end{itemize}
+            \subsection{Arbol AVL}
+                A continuación tenemos la implementación de la estructura de datos para el árbol AVL en Java. Un árbol AVL es un árbol binario de búsqueda auto-balanceado donde las alturas de los dos subárboles hijos de cualquier nodo difieren como máximo en uno. El código proporciona métodos para insertar, buscar y eliminar elementos del árbol AVL.
+
+                La clase arbolAVL está parametrizada con un tipo genérico E que debe ser comparable, es decir, que debe implementar la interfaz Comparable<E> para poder comparar los elementos. Así mismo, hace uso de la clase NodeAVL<E> explicada anteriormente.
+
+                Esta clase usa los métodos:
+                \begin{itemize}
+                    \item isEmpty(): Este método simplemente verifica si el árbol está vacío, es decir, si la raíz es igual a null. Si la raíz es nula, entonces el árbol está vacío y se devuelve true, de lo contrario se devuelve false.
+                            \begin{lstlisting}[language=Java, caption=Método isEmpty(), numbers=left]
+    public boolean isEmpty() {
+        return this.root == null;
+    }
+                            \end{lstlisting}
+                    \item getRoot(): Este método devuelve el valor de la raíz del árbol. Si la raíz es nula, entonces se lanza una excepción ExceptionNoFound.
+                            \begin{lstlisting}[language=Java, caption=Método getRoot(), numbers=left]
+    public E getRoot() {
+        return this.root.getData();
+    }
+                            \end{lstlisting}
+                    \item isLeaf(NodeAVL<E> current): Este método verifica si un nodo dado es una hoja, es decir, si no tiene hijos izquierdo ni derecho. La función devuelve true si el nodo es una hoja y false en caso contrario.
+                            \begin{lstlisting}[language=Java, caption=Método isLeaf(NodeAVL<E> current), numbers=left]
+    private boolean isLeaf(NodeAVL<E> current) { // elemento es hoja
+        return current.getLeft() == null && current.getRight() == null;
+    }
+                            \end{lstlisting}
+                    \item parent(E x): Este método devuelve el padre del nodo que contiene el valor x. Para buscar el padre del nodo, se comienza la búsqueda desde la raíz del árbol y se desciende por el subárbol izquierdo o derecho según corresponda hasta encontrar el nodo que contiene el valor x. Si se encuentra el nodo, se devuelve su padre, de lo contrario se lanza una excepción ExceptionNoFound.
+                            \begin{lstlisting}[language=Java, caption=Método parent(E x), numbers=left]
+    public NodeAVL<E> parent(E x) throws ExceptionNoFound {
+        NodeAVL<E> aux = parent(x, this.root);
+        if (aux == null)
+            throw new ExceptionNoFound("Elemento no se encuentra en el arbol");
+        System.out.println(aux.getData());
+        return aux;
+    }
+    
+    private NodeAVL<E> parent(E x, NodeAVL<E> current) throws ExceptionNoFound {
+        if (current == null) {
+            throw new ExceptionNoFound("El árbol está vacío");
+        }
+    
+        NodeAVL<E> parent = null;
+        NodeAVL<E> node = current;
+    
+        while (node != null) {
+            int comparison = x.compareTo(node.getData());
+    
+            if (comparison == 0) {
+                if (parent == null) {
+                    throw new ExceptionNoFound("El nodo insertado es la raíz del árbol");
+                }
+                return parent;
+            } else if (comparison < 0) {
+                parent = node;
+                node = node.getLeft();
+            } else {
+                parent = node;
+                node = node.getRight();
+            }
+        }
+    
+        throw new ExceptionNoFound("El elemento no se encuentra en el árbol");
+    }
+                            \end{lstlisting}
+                    \item son(E dato): Este método devuelve una lista con los hijos del nodo que contiene el valor dato. Si el nodo no existe en el árbol, se lanza una excepción ExceptionNoFound.
+                            \begin{lstlisting}[language=Java, caption=Método son(E dato), numbers=left]
+    public ArrayList<NodeAVL<E>> son(E dato) throws ExceptionNoFound {
+        NodeAVL<E> nodo = search(dato);
+        ArrayList<NodeAVL<E>> hijos = new ArrayList<>();
+        if (nodo.getLeft() != null) {
+            hijos.add(nodo.getLeft());
+        }
+        if (nodo.getRight() != null) {
+            hijos.add(nodo.getRight());
+        }
+        return hijos;
+    }
+                            \end{lstlisting}
+                    \item insert(E x): Este método inserta un nuevo nodo con valor x en el árbol. Para insertar el nodo, se comienza la búsqueda desde la raíz del árbol y se desciende por el subárbol izquierdo o derecho según corresponda hasta encontrar el lugar adecuado para insertar el nuevo nodo. Si el valor x ya existe en el árbol, se lanza una excepción ExceptionNoFound.
+                            \begin{lstlisting}[language=Java, caption=Método insert(E x), numbers=left]
+    public void insert(E x) throws ExceptionNoFound {
+        this.root = insert(x, this.root);
+        this.height = false;
+    }
+    
+    private NodeAVL<E> insert(E x, NodeAVL<E> current) throws ExceptionNoFound {
+        NodeAVL<E> res = current;
+        if (current == null) {
+            res = new NodeAVL<E>(x);
+            this.height = true;
+        } else {
+            int resC = current.getData().compareTo(x);
+            if (resC == 0)
+                throw new ExceptionNoFound("El elemento ya se encuentra en el arbol");
+            if (resC < 0) {
+                res.setRight(insert(x, current.getRight()));
+                if (this.height) {
+                    switch (res.getBf()) {
+                        case -1:
+                            res.setBf(0); // -1+1
+                            this.height = false;
+                            break;
+                        case 0:
+                            res.setBf(1); // 0+1
+                            break;
+                        case 1: // res.setBf(2); 1+1
+                            res = balanceToLeft(res);
+                            this.height = false;
+                            break;
+                    }
+                }
+    
+            } else { // resC > 0
+                res.setLeft(insert(x, current.getLeft()));
+                if (this.height) {
+                    switch (res.getBf()) {
+                        case -1: // res.setBf(-2); //-1-1
+                            res = balanceToRight(res);
+                            this.height = false;
+                            break;
+                        case 0:
+                            res.setBf(-1); // 0-1
+                            break;
+                        case 1:
+                            res.setBf(0); // 1-1
+                            this.height = false;
+                            break;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+                            \end{lstlisting}
+                    \item search(E x): Este método busca el nodo que contiene el valor x. Para buscar el nodo, se comienza la búsqueda desde la raíz del árbol y se desciende por el subárbol izquierdo o derecho según corresponda hasta encontrar el nodo que contiene el valor x. Si se encuentra el nodo, se devuelve, de lo contrario se lanza una excepción ExceptionNoFound.
+                            \begin{lstlisting}[language=Java, caption=Método search(E x), numbers=left]
+    public NodeAVL<E> search(E x) throws ExceptionNoFound {
+        NodeAVL<E> aux = search(x, this.root);
+        if (aux == null) {
+            throw new ExceptionNoFound("Elemento no se encuentra en el arbol");
+        }
+        return aux;
+    }
+    
+    private NodeAVL<E> search(E x, NodeAVL<E> current) throws ExceptionNoFound {
+        if (current == null) { // deja la recursividad si ya no hay elementos
+            return null;
+        } else {
+            int resC = current.getData().compareTo(x);
+            if (resC == 0) // deja la recursividad hasta encontrar el elemento
+                return current;
+            if (resC < 0)
+                return search(x, current.getRight());
+            else
+                return search(x, current.getLeft());
+        }
+    }
+                            \end{lstlisting}
+                    \item remove(E x): Este método elimina el nodo que contiene el valor x del árbol. Para eliminar el nodo, se comienza la búsqueda desde la raíz del árbol y se desciende por el subárbol izquierdo o derecho según corresponda hasta encontrar el nodo que contiene el valor x. Si el nodo no existe en el árbol, se lanza una excepción ExceptionNoFound. Si el nodo tiene dos hijos, se reemplaza el valor del nodo con el valor del sucesor inorden y se elimina el sucesor inorden. Si el nodo tiene un solo hijo o es una hoja, se elimina el nodo y se reorganiza el árbol para mantener el equilibrio de la estructura.
+                            \begin{lstlisting}[language=Java, caption=Método remove(E x), numbers=left]
+    public void remove(E x) throws ExceptionNoFound {
+        this.root = remove(x, this.root);
+    }
+    
+    private NodeAVL<E> remove(E x, NodeAVL<E> current) throws ExceptionNoFound {
+        NodeAVL<E> res = current;
+        if (current == null) {
+            throw new ExceptionNoFound("Elemento no se encuentra en el arbol");
+        } else {
+            int resC = current.getData().compareTo(x);
+            if (resC < 0) {
+                res.setRight(remove(x, current.getRight()));
+    
+            }
+            else if (resC > 0) {
+                res.setLeft(remove(x, current.getLeft()));
+    
+            }
+            else {
+                if (current.getLeft()!= null && current.getRight() != null) { // tiene ambos hijos (2)
+                    NodeAVL<E> aux = getMax(current.getLeft());
+                            E datoAux = aux.getData();
+                    current.setLeft(remove(datoAux, current.getLeft()));
+                            current.setData(datoAux);
+                }
+                else {
+                    if (isLeaf(current)) // es una hoja
+                        res = null;
+                    else{ // solo tiene un hijo
+                        res = current.getLeft() != null ? current.getLeft() : current.getRight();
+                    } 
+                }
+            }
+        }
+        return res;
+    
+    }
+                            \end{lstlisting}
+                    \item getMin(): Este método devuelve el nodo con el valor mínimo del árbol. Para encontrar el nodo con el valor mínimo, se comienza la búsqueda desde la raíz del árbol y se desciende por el subárbol izquierdo hasta encontrar el nodo con el valor mínimo.
+                            \begin{lstlisting}[language=Java, caption=Método getMin(), numbers=left]
+    public NodeAVL<E> getMin() {
+        return getMin(root);
+    }
+    
+    public NodeAVL<E> getMin(NodeAVL<E> nodo) {
+        if (nodo.getLeft() == null) {
+            return nodo;
+        }
+        return getMin(nodo.getLeft());
+    }
+                            \end{lstlisting}
+                    \item getMax(): Este método devuelve el nodo con el valor máximo del árbol. Para encontrar el nodo con el valor máximo, se comienza la búsqueda desde la raíz del árbol y se desciende por el subárbol derecho hasta encontrar el nodo con el valor máximo.
+                            \begin{lstlisting}[language=Java, caption=Método getMax(), numbers=left]
+    public NodeAVL<E> getMax() {
+        return getMax(root);
+    }
+    
+    public NodeAVL<E> getMax(NodeAVL<E> nodo) {
+        if (nodo.getRight() == null) {
+            return nodo;
+        }
+        return getMax(nodo.getRight());
+    }
+                            \end{lstlisting}
+                    \item inOrden(): Este método imprime los valores del árbol en orden, es decir, en el orden en que se visitan los nodos en un recorrido inorden. Para hacer esto, se utiliza una implementación recursiva del recorrido inorden.
+                            \begin{lstlisting}[language=Java, caption=Método inOrden(), numbers=left]
+    public void inOrden() {
+        if (isEmpty()) {
+            System.out.println("Arbol esta vacío ....");
+        } else {
+            inOrden(this.root);
+            System.out.println();
+        }
+    }
+    
+    private void inOrden(NodeAVL<E> current) {
+        if (current.getLeft() != null) {
+            inOrden(current.getLeft());
+        }
+        System.out.print(current + ", ");
+        if (current.getRight() != null) {
+            inOrden(current.getRight());
+        }
+    }
+                            \end{lstlisting}
+                \end{itemize}
+        \clearpage  
+        \section{SOLUCIÓN DEL CUESTIONARIO:}
+            Explique como es el algoritmo que implemento para obtener el factor de equilibrio de un nodo.
+            \begin{itemize}
+                \item El algoritmo implementado para obtener el factor de equilibrio de un nodo en un árbol AVL se encuentra en el método getBalanceFactor(AVLNode node).
+
+                Si el nodo dado es nulo (null), significa que no hay subárbol y su factor de equilibrio es 0. Por lo tanto, se devuelve 0.
+                
+                Si el nodo no es nulo, se calcula la altura de su subárbol izquierdo llamando al método getHeight(node.left). De manera similar, se calcula la altura del subárbol derecho llamando a getHeight(node.right).
+                
+                El factor de equilibrio se calcula restando la altura del subárbol derecho de la altura del subárbol izquierdo: getHeight(node.left) - getHeight(node.right).
+                
+                El valor resultante es el factor de equilibrio del nodo y se devuelve como resultado.
+            \end{itemize}
+        \clearpage
+        \section{CONCLUSIONES:}
+            \begin{itemize}
+                \item Los árboles AVL son una estructura de datos muy eficiente para almacenar y buscar información, especialmente cuando se necesita mantener el árbol balanceado y se espera realizar muchas operaciones de inserción y eliminación.
+                \item La complejidad de tiempo para buscar un elemento en un árbol AVL es O(log n), lo que significa que la búsqueda es muy rápida incluso para árboles grandes.
+                \item La principal desventaja de los árboles AVL es que pueden requerir más tiempo y recursos para realizar operaciones de inserción y eliminación que otros tipos de árboles, como los árboles binarios de búsqueda no balanceados.
+            \end{itemize}
+        \clearpage
+        \section{REFERENCIAS:}
+            \begin{itemize}			
+                \item \url{https://www.w3schools.com/java/default.asp}
+                \item \url{https://graphstream-project.org/}
+                \item \url{https://docs.oracle.com/middleware/1213/coherence/java-reference/com/tangosol/util/Tree.html}
+                \item \url{https://commons.apache.org/proper/commons-math/javadocs/api-3.6.1/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.html}
+            \end{itemize}	
+        	
+        %\clearpage
+        %\bibliographystyle{apalike}
+        %\bibliographystyle{IEEEtranN}
+        %\bibliography{bibliography}
+        			
+\end{document}
