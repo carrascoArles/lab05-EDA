@@ -246,9 +246,22 @@
             \subsection{Arbol AVL}
                 A continuación tenemos la implementación de la estructura de datos para el árbol AVL en Java. Un árbol AVL es un árbol binario de búsqueda auto-balanceado donde las alturas de los dos subárboles hijos de cualquier nodo difieren como máximo en uno. El código proporciona métodos para insertar, buscar y eliminar elementos del árbol AVL.
 
-                La clase arbolAVL está parametrizada con un tipo genérico E que debe ser comparable, es decir, que debe implementar la interfaz Comparable<E> para poder comparar los elementos. Así mismo, hace uso de la clase NodeAVL<E> explicada anteriormente.
+                La clase arbolAVL está parametrizada con un tipo genérico E que debe ser comparable, es decir, que debe implementar la interfaz Comparable<E> para poder comparar los elementos. Así mismo, hace uso de la clase NodeAVL<E> explicada anteriormente. Tenemos como método constructor a:
+                    \begin{lstlisting}[language=Java, caption=Método constructor arbolAVL()), numbers=left]
+    public arbolAVL() {
+        this.root = null;
+        this.graph = createGraph();
+    }
+                    \end{lstlisting}    
 
-                Esta clase usa los métodos:
+                Para usar la biblioteca GraphStream debemos importarla.
+                    \begin{lstlisting}[language=Java, caption=Método constructor arbolAVL()), numbers=left]
+    import org.graphstream.graph.Graph;
+    import org.graphstream.graph.implementations.SingleGraph;
+    import org.graphstream.graph.Node;
+                    \end{lstlisting}  
+                
+                La clase arbolAVL usa los métodos:
                 \begin{itemize}
                     \item isEmpty(): Este método simplemente verifica si el árbol está vacío, es decir, si la raíz es igual a null. Si la raíz es nula, entonces el árbol está vacío y se devuelve true, de lo contrario se devuelve false.
                             \begin{lstlisting}[language=Java, caption=Método isEmpty(), numbers=left]
@@ -487,20 +500,103 @@
         }
     }
                             \end{lstlisting}
+                    \item createGraph(): Este método crea y devuelve un objeto de la clase Graph de la biblioteca GraphStream para representar el grafo. Se establecen algunas propiedades del grafo, como su nombre y su estilo de visualización. Este método se utiliza para inicializar el grafo antes de agregar los nodos y las aristas.
+                            \begin{lstlisting}[language=Java, caption=Método createGraph(), numbers=left]
+    private Graph createGraph() {
+        Graph graph = new SingleGraph("ArbolAVL");
+        graph.setAttribute("ui.stylesheet", "node { shape: box; }");
+        graph.setAttribute("ui.quality");
+        graph.setAttribute("ui.antialias");
+        return graph;
+    }
+                            \end{lstlisting}
+                    \item addNodesToGraph(NodeAVL<E> current, Node node): Este método es una función recursiva que recorre el árbol AVL y agrega los nodos y las aristas correspondientes al grafo. En cada llamada recursiva, se verifica si el nodo actual existe en el grafo y, si no es así, se agrega al grafo. Se agrega una arista para conectar el nodo actual con su hijo izquierdo, si existe, y se llama de manera recursiva a la función para agregar los nodos y las aristas de los hijos. Luego se repite el mismo proceso para el hijo derecho del nodo actual. Este método utiliza un objeto nodeId para asignar un identificador único a cada nodo del grafo.
+                            \begin{lstlisting}[language=Java, caption={Método addNodesToGraph(NodeAVL<E> current, Node node)}, numbers=left]
+    private void addNodesToGraph(NodeAVL<E> current, Node node) {
+        if (current != null) {
+            String currentNodeId = current.toString() + nodeId;
+    
+            // Incrementar el contador de ID
+            nodeId++;
+    
+            // Verificar si el nodo ya existe en el gráfico
+            if (graph.getNode(currentNodeId) == null) {
+                node = graph.addNode(currentNodeId);
+                node.setAttribute("ui.label", current.toString());
+            }
+    
+            if (current.getLeft() != null) {
+                String leftNodeId = current.getLeft().toString() + nodeId;
+    
+                // Incrementar el contador de ID
+                nodeId++;
+    
+                // Verificar si el nodo izquierdo ya existe en el gráfico
+                if (graph.getNode(leftNodeId) == null) {
+                    Node left = graph.addNode(leftNodeId);
+                    left.setAttribute("ui.label", current.getLeft().toString());
+                }
+    
+                graph.addEdge(currentNodeId + leftNodeId, currentNodeId, leftNodeId);
+                addNodesToGraph(current.getLeft(), graph.getNode(leftNodeId));
+            }
+    
+            if (current.getRight() != null) {
+                String rightNodeId = current.getRight().toString() + nodeId;
+    
+                // Incrementar el contador de ID
+                nodeId++;
+    
+                // Verificar si el nodo derecho ya existe en el gráfico
+                if (graph.getNode(rightNodeId) == null) {
+                    Node right = graph.addNode(rightNodeId);
+                    right.setAttribute("ui.label", current.getRight().toString());
+                }
+    
+                graph.addEdge(currentNodeId + rightNodeId, currentNodeId, rightNodeId);
+                addNodesToGraph(current.getRight(), graph.getNode(rightNodeId));
+            }
+        }
+    }
+                            \end{lstlisting}
+                    \item displayGraph(): Este método borra el contenido del grafo existente y luego agrega el nodo raíz del árbol AVL al grafo, utilizando el método addNodesToGraph(). Luego muestra el grafo en una ventana gráfica. Usamos este método para visualizar el árbol AVL en forma de grafo.
+                            \begin{lstlisting}[language=Java, caption=Método displayGraph(), numbers=left]
+    public void displayGraph() {
+        graph.clear();
+        if (!isEmpty()) {
+            Node rootNode = graph.addNode(root.toString());
+            rootNode.setAttribute("ui.label", root.toString());
+            addNodesToGraph(root, rootNode);
+        }
+        graph.display();
+    }
+                            \end{lstlisting}
                 \end{itemize}
+
+        \clearpage  
+            \subsection{Prueba de ejecución}
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=0.5\linewidth]{img/Consola_Ejecución.png}
+                    \caption{Prueba de ejecución en consola, vemos la inserción de cada elemento en el árbol}
+                \end{figure}
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=0.5\linewidth]{img/Grafico1.png}
+                    \caption{Prueba de ejecución en consola}
+                \end{figure}
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=0.5\linewidth]{img/Grafico2.png}
+                    \caption{Prueba de ejecución en consola}
+                \end{figure}
         \clearpage  
         \section{SOLUCIÓN DEL CUESTIONARIO:}
             Explique como es el algoritmo que implemento para obtener el factor de equilibrio de un nodo.
             \begin{itemize}
-                \item El algoritmo implementado para obtener el factor de equilibrio de un nodo en un árbol AVL se encuentra en el método getBalanceFactor(AVLNode node).
-
-                Si el nodo dado es nulo (null), significa que no hay subárbol y su factor de equilibrio es 0. Por lo tanto, se devuelve 0.
+                \item En el método balanceToLeft, se verifica el BF del hijo izquierdo del nodo. Si el BF es -1, se realiza una rotación simple a la derecha para balancear el árbol. Si el BF es 1, se examina el BF del nieto derecho. Dependiendo del valor del BF del nieto derecho, se realiza una rotación específica (izquierda-derecha o derecha-derecha) para equilibrar el árbol. Finalmente, se actualizan los BF de los nodos involucrados en las rotaciones.
                 
-                Si el nodo no es nulo, se calcula la altura de su subárbol izquierdo llamando al método getHeight(node.left). De manera similar, se calcula la altura del subárbol derecho llamando a getHeight(node.right).
-                
-                El factor de equilibrio se calcula restando la altura del subárbol derecho de la altura del subárbol izquierdo: getHeight(node.left) - getHeight(node.right).
-                
-                El valor resultante es el factor de equilibrio del nodo y se devuelve como resultado.
+                En el método balanceToRight, se sigue una lógica similar, pero aplicada al hijo derecho del nodo. Si el BF del hijo derecho es 1, se realiza una rotación simple a la izquierda. Si el BF es -1, se examina el BF del nieto izquierdo y se realiza una rotación específica (derecha-izquierda o izquierda-izquierda) para equilibrar el árbol. También se actualizan los BF de los nodos afectados.
             \end{itemize}
         \clearpage
         \section{CONCLUSIONES:}
